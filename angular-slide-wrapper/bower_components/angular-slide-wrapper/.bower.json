@@ -1,0 +1,19 @@
+{
+  "name": "angular-slide-wrapper",
+  "version": "0.1.0",
+  "main": "./src/angular-animated-label.js",
+  "dependencies": {
+    "angular": "^1.0.8"
+  },
+  "homepage": "https://github.com/wender/angular-slide-wrapper",
+  "_release": "0.1.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.1.0",
+    "commit": "27f6f22cc84edfa077688cd2a19da0f20a521bb9"
+  },
+  "_source": "git://github.com/wender/angular-slide-wrapper.git",
+  "_target": "~0.1.0",
+  "_originalSource": "angular-slide-wrapper",
+  "_direct": true
+}

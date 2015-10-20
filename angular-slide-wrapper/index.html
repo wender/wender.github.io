@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html ng-app="wender">
+
+  <head>
+    <meta charset="utf-8" />
+    <title>Exemplo Slide Wrapper</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Angular Directive that turns any list into a slider/carousel" />
+    <meta name="author" content="Wender Lima" />
+    <!-- Le styles -->
+    <link data-require="bootstrap-css" data-semver="3.3.1" rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" />
+    <link data-require="bootstrap@*" data-semver="3.3.5" rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+
+    
+  </head>
+
+  <body ng-controller="MainCtrl">
+    <style type="text/css">
+      slide-wrapper {
+        position: relative;
+        display: block;
+        height: 300px;
+        overflow: hidden;
+        width: 100%;
+        max-width: 500px;
+        margin: 50px auto;
+      }
+
+      ul.slides {
+        list-style: none;
+        padding: 0;
+        transition: all .5s ease;
+        margin: inherit;
+        float: inherit;
+        height: 300px;
+      }
+      ul.slides.touch {
+        transition: none;
+      }
+      ul.slides li {
+        float: left;
+        height: 300px; 
+      }
+
+      ul.bullets li{
+        width: 15px;
+        height: 15px;
+        background-color: rgba(0,0,0,0.3);
+        border: 1px solid rgba(0,0,0,0.7);
+        border-radius: 50%;
+        float: left;
+        margin: 5px;
+        cursor: pointer;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    ul.bullets li.active {
+      background-color: rgba(0,0,0,0.7);
+    }
+   
+
+  .arrow {
+    position: absolute;
+    top: 50%;
+    padding: 15px;
+    cursor: pointer;
+    user-select: none;
+    color: rgba(0,0,0,0.5);
+    font-size: 15pt;
+  }
+
+  .arrow.left {
+      left: 0;
+    }
+    .arrow.left:before {
+      content:'<';
+    }
+  .arrow.right {
+    right: 0;
+  }
+  .arrow.right:before {
+    content: '>';
+  }
+
+      .slide .green {background-color: green;}
+      .slide .blue {background-color: blue;}
+      .slide .yellow {background-color: yellow;}
+      .slide .red {background-color: red;}
+    </style>
+    <section class="row">
+      <h1>This is an awesome carousel 
+        <slide-wrapper>
+          <ul class="slides">
+            <li class="green slide"><p>Slide 1</p></li>
+            <li class="blue slide"><p>Slide 2</p></li>
+            <li class="yellow slide"><p>Slide 3</p></li>
+            <li class="red slide"><p>Slide 4</p></li>
+          </ul> 
+        </slide-wrapper>
+    </section>
+
+    <script data-require="angular.js@1.4.x" src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.min.js" data-semver="1.4.7"></script>
+    <script src="bower_components/angular-slide-wrapper/src/angular-slide-wrapper.js" ></script>
+    <script type="text/javascript">
+      var app = angular.module('wender', ['slideWrapper']);
+
+      app.controller('MainCtrl', function($scope) {
+        
+      });
+
+    </script>
+  </body>
+
+</html>
+
