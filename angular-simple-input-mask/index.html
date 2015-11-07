@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html ng-app="wender">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Angular Simple Input Mask</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" />
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
+</head>
+
+<body ng-controller="MainCtrl">
+<style type="text/css">
+    body {
+        font-family: 'Roboto', sans-serif;
+        font-weight: 300;
+    }
+</style>
+<div class="container">
+    <div class="row">
+        <h1>Angular Simple Input Mask</h1>
+        <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h1><a id="user-content-simple-input-mask-directive-for-angularjs" class="anchor" href="#simple-input-mask-directive-for-angularjs" aria-hidden="true"><span class="octicon octicon-link"></span></a>Simple input mask directive for <a href="http://angularjs.org/">AngularJS</a></h1>
+
+            <hr>
+
+            <p>Way simple Angular directive to apply mask to input fields also with dynamic/multiple masks to the same field, which means that you can have different masks for different lengths of numbers</p>
+
+            <p>Mask format uses 0
+                Example: 0000-0000-0000-0000</p>
+
+            <p>Directive will look for attribute angular-mask on input</p>
+
+            <h2><a id="user-content-example" class="anchor" href="#example" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example:</h2>
+
+            <div class="form-group">
+                <input type="text" class="form-control" id="example1" ng-model="field.example1" placeholder="Credit Card" maxlengh="19" angular-mask="0000-0000-0000-0000" >
+            </div>
+            <div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">input</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>test<span class="pl-pds">"</span></span> <span class="pl-e">maxlengh</span>=<span class="pl-s"><span class="pl-pds">"</span>19<span class="pl-pds">"</span></span>  <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>field.example1<span class="pl-pds">"</span></span> <span class="pl-e">angular-mask</span>=<span class="pl-s"><span class="pl-pds">"</span>0000-0000-0000-0000<span class="pl-pds">"</span></span> /&gt;</pre></div>
+
+
+            <h3><a id="user-content-multiple-masks" class="anchor" href="#multiple-masks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Multiple masks</h3>
+
+            <div class="form-group">
+                <input type="text" class="form-control" id="example2" ng-model="field.example2" placeholder="Phone number" maxlengh="19" angular-mask="(00)00000-0000|(00)0000-0000" >
+            </div>
+            <div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">input</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>test<span class="pl-pds">"</span></span> <span class="pl-e">maxlengh</span>=<span class="pl-s"><span class="pl-pds">"</span>19<span class="pl-pds">"</span></span> <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>field.example2<span class="pl-pds">"</span></span> <span class="pl-e">angular-mask</span>=<span class="pl-s"><span class="pl-pds">"</span>(00)00000-0000|(00)0000-0000<span class="pl-pds">"</span></span> /&gt;</pre></div>
+
+
+            <p>Use | to separate masks</p>
+
+            <h4><a id="user-content-install-via-bower" class="anchor" href="#install-via-bower" aria-hidden="true"><span class="octicon octicon-link"></span></a>Install via bower</h4>
+
+<pre><code>bower install angular-input-mask --save
+</code></pre>
+        </article>
+    </div>
+</div>
+<script data-require="angular.js@1.4.x" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.js" data-semver="1.4.7"></script>
+<script type="text/javascript" src="bower_components/angular-input-mask/src/angular-simple-mask.js"></script>
+<script type="text/javascript">
+    var app = angular.module('wender', ['angularMask']);
+    app.controller('MainCtrl', function($scope) {
+        $scope.field = {
+            example1: null,
+            example2: null
+        };
+    });
+</script>
+</body>
+
+</html>
