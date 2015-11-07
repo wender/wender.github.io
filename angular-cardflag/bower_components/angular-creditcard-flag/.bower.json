@@ -1,0 +1,36 @@
+{
+  "name": "angular-creditcard-flag",
+  "version": "0.0.1",
+  "main": "./src/angular-creditcard-flag.js",
+  "dependencies": {
+    "angular": "^1.0.8"
+  },
+  "homepage": "https://github.com/wender/angular-cardflag",
+  "authors": [
+    "Wender Lima <wender.lima@gmail.com>"
+  ],
+  "description": "AngularJS directive to automatically show credit card flags while typing",
+  "keywords": [
+    "AngularJS",
+    "CreditCard",
+    "Directive"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "_release": "0.0.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.0.1",
+    "commit": "dbb9a1990b925fd79abf7c50abd10586ea90fc2a"
+  },
+  "_source": "git://github.com/wender/angular-cardflag.git",
+  "_target": "~0.0.1",
+  "_originalSource": "angular-creditcard-flag",
+  "_direct": true
+}

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html ng-app="wender">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Angular Creditcard Flag</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" />
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
+</head>
+
+<body ng-controller="MainCtrl">
+<style type="text/css">
+    body {
+        font-family: 'Roboto', sans-serif;
+        font-weight: 300;
+    }
+    .card-flag + ._flag {
+        background: url(card-flag-highlight.png) no-repeat top left;
+        width: 50px;
+        height: 30px;
+        display: none;
+        position: absolute;
+        top: 2px;
+        right: -55px;
+    }
+
+    .card-flag.card-flag-amex + ._flag {
+        background-position: 0 0;
+        display: inline-block; }
+
+    .card-flag.card-flag-diners + ._flag {
+        background-position: 0 -160px;
+        display: inline-block; }
+
+    .card-flag.card-flag-elo + ._flag {
+        background-position: 0 -240px;
+        display: inline-block; }
+
+    .card-flag.card-flag-hipercard + ._flag {
+        background-position: 0 -320px;
+        display: inline-block; }
+
+    .card-flag.card-flag-master + ._flag {
+        background-position: 0 -400px;
+        display: inline-block; }
+
+    .card-flag.card-flag-visa + ._flag {
+        background-position: 0 -480px;
+        display: inline-block; }
+
+    .card-flag.card-flag-hiper + ._flag {
+        background-position: 0 -556px;
+        display: inline-block;}
+    .creditcard {
+        width: 180px;
+        position: relative;
+    }
+</style>
+<div class="container">
+    <div class="row">
+        <article class="markdown-body entry-content" itemprop="mainContentOfPage">
+
+            <h1><a id="top" class="anchor" href="#top" aria-hidden="true"><span class="octicon octicon-link"></span></a>Angular Creditcard Flag directive for <a href="http://angularjs.org/">AngularJS</a></h1>
+
+            <hr>
+
+            <p>This directive will look for attribute "creditcard-flag" on an input field, will add a class card-flag and a SPAN with a class "_flag" after it,
+                when you start typing a number, it will add a class corresponding to the Credit Card brand.
+            </p>
+
+            <p>All the magic happens in your CSS</p>
+
+
+            <h2><a id="user-content-example" class="anchor" href="#example" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example:</h2>
+
+            <div class="form-group creditcard">
+                <input type="text" class="form-control" id="example1" ng-model="field.example1" placeholder="Credit Card Number" maxlengh="19" angular-mask="0000-0000-0000-0000" size="20" creditcard-flag>
+            </div>
+            <div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">input</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>test<span class="pl-pds">"</span></span> <span class="pl-e">maxlengh</span>=<span class="pl-s"><span class="pl-pds">"</span>19<span class="pl-pds">"</span></span>  <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>field.example1<span class="pl-pds">"</span></span> <span class="pl-e">angular-mask</span>=<span class="pl-s"><span class="pl-pds">"</span>0000-0000-0000-0000<span class="pl-pds">"</span></span> <span class="pl-e">creditcard-flag</span> /&gt;</pre></div>
+
+
+            <h4><a id="user-content-install-via-bower" class="anchor" href="#install-via-bower" aria-hidden="true"><span class="octicon octicon-link"></span></a>Install via bower</h4>
+
+<pre><code>bower install angular-creditcard-flag --save
+</code></pre>
+        </article>
+    </div>
+</div>
+<script data-require="angular.js@1.4.x" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.js" data-semver="1.4.7"></script>
+<script type="text/javascript" src="bower_components/angular-input-mask/src/angular-simple-mask.js"></script>
+<script type="text/javascript" src="bower_components/angular-creditcard-flag/src/angular-creditcard-flag.js"></script>
+<script type="text/javascript">
+    var app = angular.module('wender', ['angularMask','angular-creditcard-flag']);
+    app.controller('MainCtrl', function($scope) {
+        $scope.field = {
+            example1: null
+        };
+    });
+</script>
+</body>
+
+</html>
