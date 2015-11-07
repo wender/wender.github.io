@@ -1,0 +1,74 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+}
+h2 {
+    margin-bottom: 40px;
+}
+.card-flag + ._flag {
+    background: url(card-flag-highlight.png) no-repeat top left;
+    width: 50px;
+    height: 30px;
+    display: none;
+    position: absolute;
+    top: 2px;
+    right: -55px;
+}
+
+.card-flag.card-flag-amex + ._flag {
+    background-position: 0 0;
+    display: inline-block; }
+
+.card-flag.card-flag-diners + ._flag {
+    background-position: 0 -160px;
+    display: inline-block; }
+
+.card-flag.card-flag-elo + ._flag {
+    background-position: 0 -240px;
+    display: inline-block; }
+
+.card-flag.card-flag-hipercard + ._flag {
+    background-position: 0 -320px;
+    display: inline-block; }
+
+.card-flag.card-flag-master + ._flag {
+    background-position: 0 -400px;
+    display: inline-block; }
+
+.card-flag.card-flag-visa + ._flag {
+    background-position: 0 -480px;
+    display: inline-block; }
+
+.card-flag.card-flag-hiper + ._flag {
+    background-position: 0 -556px;
+    display: inline-block;}
+.creditcard {
+    width: 180px;
+    position: relative;
+}
+
+.animated-label {
+    position:relative;
+}
+.animated-label.animated-label-focus label,.animated-label.animated-label-has-value label {
+    -webkit-transform:translate3d(-10px,-24px,0) scale(0.75);
+    transform:translate3d(-10px,-24px,0) scale(0.75);
+    color:#000;
+}
+.animated-label label {
+    position:absolute;
+    font-size:13px;
+    color:rgba(0,0,0,0.26);
+    left:10px;
+    top:8px;
+    font-weight:300;
+    -webkit-transform:translate3d(0,0,0) scale(1);
+    transform:translate3d(0,0,0) scale(1);
+    -webkit-transform-origin:left top;
+    transform-origin:left top;
+    -webkit-transition:0 cubic-bezier(0.25,0.8,0.25,1) .25s;
+    transition:transform cubic-bezier(0.25,0.8,0.25,1) .25s;
+}
+.animated-label.animated-label-focus label {
+    color:#087aac;
+}

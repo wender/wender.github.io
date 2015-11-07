@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html ng-app="wender">
+
+<head>
+    <meta charset="utf-8"/>
+    <title>Angular Animated Label</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css"/>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
+          integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ=="
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"
+          integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
+    <link rel="stylesheet" href="../examples.css">
+</head>
+
+<body ng-controller="MainCtrl">
+
+<div class="container">
+    <div class="row">
+        <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h1><a
+                id="user-content-angular-animated-label-angularjs" class="anchor"
+                href="#angular-animated-label-angularjs" aria-hidden="true"><span
+                class="octicon octicon-link"></span></a>Angular Animated Label <a
+                href="http://angularjs.org/">AngularJS</a></h1>
+
+            <hr>
+
+            <p>Awesome effect to save space at forms turning labels into placeholders and still make it's information
+                visible</p>
+
+            <p>This directive will look for the attribute 'animated-label' on input</p>
+
+            <h2><a id="user-content-example" class="anchor" href="#example" aria-hidden="true"><span
+                    class="octicon octicon-link"></span></a>Example:</h2>
+
+            <div class="form-group creditcard">
+                <label for="example1">Credit Card Number</label>
+                <input type="text" class="form-control" id="example1" ng-model="field.example1" maxlengh="19" angular-mask="0000-0000-0000-0000" size="20" creditcard-flag data-animated-label />
+            </div>
+
+
+<pre><code>bower install angular-animated-label --save
+</code></pre>
+
+        </article>
+    </div>
+</div>
+<script data-require="angular.js@1.4.x" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.js"
+        data-semver="1.4.7"></script>
+<script type="text/javascript" src="bower_components/angular-input-mask/src/angular-simple-mask.js"></script>
+<script type="text/javascript" src="bower_components/angular-creditcard-flag/src/angular-creditcard-flag.js"></script>
+<script type="text/javascript" src="bower_components/angular-animated-label/src/angular-animated-label.js"></script>
+<script type="text/javascript">
+    var app = angular.module('wender', ['angularMask', 'angular-creditcard-flag', 'animatedLabel']);
+    app.controller('MainCtrl', function ($scope) {
+        $scope.field = {
+            example1: null
+        };
+    });
+</script>
+</body>
+
+</html>
