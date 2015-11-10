@@ -72,3 +72,56 @@ h2 {
 .animated-label.animated-label-focus label {
     color:#087aac;
 }
+
+.accordion {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.accordion .item {
+  margin-bottom: 10px;
+}
+.accordion .item.open .content {
+  height: auto;
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
+.accordion .item.open .title {
+  border-left-color: #e1e1e1;
+}
+.accordion .item.open .title:after {
+  -webkit-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+.accordion .item .content {
+  padding: 0 20px;
+  margin: 0;
+  background-color: #f3f3f3;
+  -webkit-transition: all 0.5s ease;
+          transition: all 0.5s ease;
+  overflow: hidden;
+  font-size: 16px;
+  line-height: 24px;
+}
+.accordion .item .title {
+  margin: 0;
+  padding: 5px 40px 5px 20px;
+  position: relative;
+  cursor: pointer;
+  border: 1px solid #eeeded;
+  font-size: 18px;
+  font-weight: 300;
+  border-left: 5px solid #2980b8;
+}
+.accordion .item .title:after {
+  content: '\f078';
+  font-family: 'FontAwesome';
+  position: absolute;
+  top: 5px;
+  right: 20px;
+  -webkit-transition: all 0.5s ease;
+          transition: all 0.5s ease;
+  color: #747474;
+  font-size: 14px;
+}
