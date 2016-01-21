@@ -5,15 +5,16 @@ angular.module('angularMask', [])
     return {
       restrict: 'A',
       require: 'ngModel',
+      scope: {
+        isModelValueEqualViewValues: '='
+      },
       link: function ($scope, el, attrs, model) {
-        var format = attrs.angularMask,
-          arrFormat = format.split('|');
-
-        if (arrFormat.length > 1) {
-          arrFormat.sort(function (a, b) {
-            return a.length - b.length;
-          });
-        }
+        $scope.$watch(function(){return attrs.angularMask;}, function(value) {
+          if (model.$viewValue != null){
+            model.$viewValue = mask(String(model.$viewValue).replace(/\D/g, ''));
+            el.val(model.$viewValue);
+          }
+        });
 
         model.$formatters.push(function (value) {
           return value === null ? '' : mask(String(value).replace(/\D/g, ''));
@@ -21,13 +22,22 @@ angular.module('angularMask', [])
 
         model.$parsers.push(function (value) {
           model.$viewValue = mask(value);
-          var modelValue = String(value).replace(/\D/g, '');
+          var modelValue = $scope.isModelValueEqualViewValues ? model.$viewValue : String(value).replace(/\D/g, '');
           el.val(model.$viewValue);
           return modelValue;
         });
 
         function mask(val) {
-          if (val === null) {
+          var format = attrs.angularMask,
+          arrFormat = format.split('|');
+
+          if (arrFormat.length > 1) {
+            arrFormat.sort(function (a, b) {
+              return a.length - b.length;
+            });
+          }
+
+          if (val === null || val == '') {
             return '';
           }
           var value = String(val).replace(/\D/g, '');
@@ -41,15 +51,14 @@ angular.module('angularMask', [])
           }
           var newValue = '';
           for (var nmI = 0, mI = 0; mI < format.length;) {
+            if (!value[nmI]) {
+              break;
+            }
             if (format[mI].match(/\D/)) {
               newValue += format[mI];
             } else {
-              if (value[nmI] != undefined) {
-                newValue += value[nmI];
-                nmI++;
-              } else {
-                break;
-              }
+              newValue += value[nmI];
+              nmI++;
             }
             mI++;
           }
