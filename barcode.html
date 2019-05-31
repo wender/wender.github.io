@@ -92,6 +92,7 @@
 
         <section id="container" class="container">
             <h1 id="resultado"></h1>
+            <pre id="devices"></pre>
             <div class="overlay overlay--inline">
                 <div class="overlay__content">
                     <div class="overlay__close">X</div>
@@ -111,6 +112,7 @@
 
             navigator.mediaDevices.enumerateDevices()
             .then(function(devices) {
+                document.getElementById('devices').innerText = JSON.stringify(devices);
             devices.forEach(function(device) {
                 //alert( JSON.stringify(device) );
                 if( device.kind == "videoinput" && device.label.match(/back/) != null ){
