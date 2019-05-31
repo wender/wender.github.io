@@ -115,9 +115,9 @@
                 document.getElementById('devices').innerText = JSON.stringify(devices);
             devices.forEach(function(device) {
                 //alert( JSON.stringify(device) );
-                if( device.kind == "videoinput" && device.label.match(/back/) != null ){
-                //alert("Back found!");
-                backCamID = device.deviceId;
+                if( device.kind === 'videoinput' && device.label.indexOf('back') !== -1 ){
+                    //alert("Back found!");
+                    backCamID = device.deviceId;
                 }
             });
             })
