@@ -93,6 +93,7 @@
         <section id="container" class="container">
             <h1 id="resultado"></h1>
             <pre id="devices"></pre>
+            <pre id="log"></pre>
             <div class="overlay overlay--inline">
                 <div class="overlay__content">
                     <div class="overlay__close">X</div>
@@ -114,19 +115,19 @@
 
             navigator.mediaDevices.enumerateDevices()
             .then(function(devices) {
-                var x = '';
-                
-            devices.forEach(function(device) {
-                //alert( JSON.stringify(device) );
-                if( device.kind === 'videoinput' && device.label.indexOf('back') !== -1 ){
-                    //alert("Back found!");
-                    backCamID = device.deviceId;
-                }
+                var x = [];
+                document.getElementById('devices').innerText = JSON.stringify(devices);
+                devices.forEach(function(device) {
+                    //alert( JSON.stringify(device) );
+                    if( device.kind === 'videoinput' && device.label.indexOf('back') !== -1 ){
+                        alert("Back found!"+device.deviceId);
+                        backCamID = device.deviceId;
+                    }
+                    console.log(device.kind === 'videoinput', device.label.indexOf('back') !== -1,'('+device.kind+','+device.label+')');
+                    x.push(device.kind === 'videoinput', device.label.indexOf('back') !== -1,'('+device.kind+','+device.label+')');
+                });
 
-                x += device.kind === 'videoinput' +'&&'+ device.label.indexOf('back') !== -1 + '('+device.kind+','+device.label+')\n';
-            });
-
-            document.getElementById('devices').innerText = x;
+                document.getElementById('log').innerText = JSON.stringify(x);
 
             })
             .catch(function(err) {
