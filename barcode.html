@@ -108,18 +108,26 @@
                 alert("enumerateDevices() not supported.");
             }
 
+
+
             var backCamID;
 
             navigator.mediaDevices.enumerateDevices()
             .then(function(devices) {
-                document.getElementById('devices').innerText = JSON.stringify(devices);
+                var x = '';
+                
             devices.forEach(function(device) {
                 //alert( JSON.stringify(device) );
                 if( device.kind === 'videoinput' && device.label.indexOf('back') !== -1 ){
                     //alert("Back found!");
                     backCamID = device.deviceId;
                 }
+
+                x += device.kind === 'videoinput' +'&&'+ device.label.indexOf('back') !== -1 + '('+device.label+')';
             });
+
+            document.getElementById('devices').innerText = x;
+
             })
             .catch(function(err) {
             //alert(err.name + ": " + err.message);
