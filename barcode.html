@@ -116,18 +116,17 @@
             navigator.mediaDevices.enumerateDevices()
             .then(function(devices) {
                 var x = [];
-                document.getElementById('devices').innerText = JSON.stringify(devices);
+
                 devices.forEach(function(device) {
                     //alert( JSON.stringify(device) );
                     if( device.kind === 'videoinput' && device.label.indexOf('back') !== -1 ){
-                        alert("Back found!"+device.deviceId);
                         backCamID = device.deviceId;
                     }
                     console.log(device.kind === 'videoinput', device.label.indexOf('back') !== -1,'('+device.kind+','+device.label+')');
                     x.push(device.kind === 'videoinput', device.label.indexOf('back') !== -1,'('+device.kind+','+device.label+')');
                 });
 
-                document.getElementById('log').innerText = JSON.stringify(x);
+
 
             })
             .catch(function(err) {
