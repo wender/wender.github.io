@@ -102,6 +102,34 @@
 
         <button type="button" class="icon-barcode button scan">Scan</button>
         <script>
+
+            if (!navigator.mediaDevices || !navigator.mediaDevices.enumerateDevices) {
+                alert("enumerateDevices() not supported.");
+            }
+
+            var backCamID;
+
+            navigator.mediaDevices.enumerateDevices()
+            .then(function(devices) {
+            devices.forEach(function(device) {
+                //alert( JSON.stringify(device) );
+                if( device.kind == "videoinput" && device.label.match(/back/) != null ){
+                //alert("Back found!");
+                backCamID = device.deviceId;
+                }
+            });
+            })
+            .catch(function(err) {
+            //alert(err.name + ": " + err.message);
+            });
+
+            if(typeof(backCamID)=="undefined"){
+                document.getElementById('resultado').innerText = "Back camera not found.";
+            } else {
+                document.getElementById('resultado').innerText = backCamID;
+            }
+
+
             var Quagga = window.Quagga;
             
             var App = {
@@ -170,7 +198,8 @@
                             constraints: {
                                 width: window.innerWidth,
                                 height: 300,
-                                facingMode: "environment"
+                                // facingMode: "environment"
+                                deviceId: backCamID
                             }
                         });
                     return scanner;
