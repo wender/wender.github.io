@@ -134,7 +134,7 @@
             //alert(err.name + ": " + err.message);
             });
 
-            if(typeof(backCamID)=="undefined"){
+            if(!backCamID){
                 document.getElementById('resultado').innerText = "Back camera not found.";
             } else {
                 document.getElementById('resultado').innerText = backCamID;
@@ -198,6 +198,7 @@
                         .classList.remove('show');
                 },
                 configureScanner: function(selector) {
+                    console.log('Configure Device', backCamID);
                     var scanner = Quagga
                         .config({
                             frequency: 1
