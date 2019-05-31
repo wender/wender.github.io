@@ -123,7 +123,7 @@
                     backCamID = device.deviceId;
                 }
 
-                x += device.kind === 'videoinput' +'&&'+ device.label.indexOf('back') !== -1 + '('+device.label+')';
+                x += device.kind === 'videoinput' +'&&'+ device.label.indexOf('back') !== -1 + '('+device.kind+','+device.label+')\n';
             });
 
             document.getElementById('devices').innerText = x;
